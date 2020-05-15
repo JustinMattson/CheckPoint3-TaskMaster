@@ -8,11 +8,111 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     />
+    <script
+      src="https://kit.fontawesome.com/e48b493767.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="assets/style.css" />
     <title>TaskMaster</title>
   </head>
 
   <body>
+    <header class="container-fluid">
+      <div class="row bg-secondary p-3 bg-secondary">
+        <div class="col-12">
+          <h1 class="text-center text-danger">Task Master</h1>
+        </div>
+      </div>
+    </header>
+    <main class="container-fluid">
+      <div class="row">
+        <!-- CREATE NEW TASK -->
+        <div class="form-group d-flex mb-1">
+          <input
+            type="text"
+            class="form-control border-0"
+            name="new-task"
+            id="new-task"
+            aria-describedby="helpId"
+            placeholder="New-task..."
+            required
+          />
+          <button type="submit" class="btn ml-1">
+            <i class="far fa-plus-square text-success"></i> Create
+          </button>
+        </div>
+      </div>
+      <div class="col-12 d-flex justify-content-center p-3">
+        <div class="taskItems">
+          <!-- START CARD TEMPLATE -->
+          <div class="card shadow">
+            <!-- Card Header -->
+            <div
+              class="d-flex justify-content-between p-2"
+              style="background-color:${this.color};"
+            >
+              <span>
+                <h3 id="taskName" class="mt-2 text-light ts-dark">
+                  ${this.name}
+                </h3>
+              </span>
+              <span>
+                <button
+                  type="submit"
+                  class="btn ml-1"
+                  onclick="app.itemsController.deleteTask('${this.id}')"
+                >
+                  <i class="fas fa-times text-danger ts-dark"></i>
+                </button>
+              </span>
+            </div>
+            <!-- Card Body -->
+            <div class="card-body d-flex flex-column mt-3 p-1">
+              <ul class="pl-3">
+                ${this.ListsTemplate}
+              </ul>
+              <form
+                class="p-1"
+                onsubmit="app.listsController.addListItem(event, '${this.id}')"
+              >
+                <div class="form-group d-flex mb-1">
+                  <input
+                    type="text"
+                    class="form-control border-0"
+                    name="list-item"
+                    id="list-item"
+                    aria-describedby="helpId"
+                    placeholder="List-item..."
+                    required
+                  />
+                  <button type="submit" class="btn ml-1">
+                    <i class="far fa-plus-square text-success"></i>
+                  </button>
+                </div>
+                <div
+                  class=""
+                  style="
+                    height: 3px;
+                    width: 100%;
+                    background-color: ${this.color};
+                  "
+                ></div>
+              </form>
+            </div>
+          </div>
+          <!-- END CARD TEMPLATE -->
+        </div>
+      </div>
+    </main>
+    <footer class="container-fluid">
+      <div class="row bg-secondary p-2">
+        <div class="col-12">
+          <h6 class="text-center text-danger">
+            Coded with <b><i class="fas fa-heart"></i></b> by Justin Mattson
+          </h6>
+        </div>
+      </div>
+    </footer>
     <script src="app/main.js" type="module"></script>
   </body>
 </html>

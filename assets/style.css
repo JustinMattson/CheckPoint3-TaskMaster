@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap");
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Architects Daughter", cursive;
+}
+header {
+  font-family: "Rock Salt", cursive;
+  text-shadow: 1px 1px 5px white;
+}
+main {
+  flex-grow: 1;
+}
+footer {
+  font-family: "Rock Salt", cursive;
+  text-shadow: 1px 1px 5px black;
+}
+
+.ts-dark {
+  text-shadow: 1px 1px 5px black;
+}
+.ts-light {
+  text-shadow: 1px 1px 5px white;
+}
+
+.form-control {
+  border: 0;
+  box-shadow: none;
+}
+/* div {
+  border: 1px solid #a8a7a7;
+} */
+
+.action {
+  cursor: pointer;
+}
