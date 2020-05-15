@@ -20,31 +20,63 @@
     <header class="container-fluid">
       <div class="row bg-secondary p-3 bg-secondary">
         <div class="col-12">
-          <h1 class="text-center text-danger">Task Master</h1>
+          <h1 class="text-center" style="color: #800080;">Task Master</h1>
         </div>
       </div>
     </header>
     <main class="container-fluid">
       <div class="row">
         <!-- CREATE NEW TASK -->
-        <div class="form-group d-flex mb-1">
-          <input
-            type="text"
-            class="form-control border-0"
-            name="new-task"
-            id="new-task"
-            aria-describedby="helpId"
-            placeholder="New-task..."
-            required
-          />
-          <button type="submit" class="btn ml-1">
-            <i class="far fa-plus-square text-success"></i> Create
-          </button>
+        <div class="col mt-3 m-3 shadow p-3">
+          <div class="d-flex justify-content-between">
+            <form
+              class="form-inline"
+              onsubmit="app.listsController.addTaskList(event)"
+              style="width: 768px;"
+            >
+              <span style="border-bottom: 1px solid #800080;">
+                <div class="form-group">
+                  <div>
+                    <input
+                      type="color"
+                      id="html5colorpicker"
+                      name="html5colorpicker"
+                      class="action"
+                      onchange="clickColor(0, -1, -1, 5)"
+                      value="#800080"
+                      style="width: 20px; border: none; background-color: #fff;"
+                    />
+                  </div>
+                  <div>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="name"
+                      id="name"
+                      aria-describedby="helpId"
+                      placeholder="Create New List..."
+                      required
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    class="btn ml-1"
+                    style="margin-left: 10px; color: #800080;"
+                  >
+                    <i class="far fa-plus-square action"></i>
+                  </button>
+                </div>
+              </span>
+            </form>
+          </div>
         </div>
+        <!-- END NEW TASK CREATION -->
       </div>
+
+      <div class="row"></div>
       <div class="col-12 d-flex justify-content-center p-3">
+        <!-- START CARD TEMPLATE -->
         <div class="taskItems">
-          <!-- START CARD TEMPLATE -->
           <div class="card shadow">
             <!-- Card Header -->
             <div
@@ -86,7 +118,7 @@
                     required
                   />
                   <button type="submit" class="btn ml-1">
-                    <i class="far fa-plus-square text-success"></i>
+                    <i class="far fa-plus-square text-success action"></i>
                   </button>
                 </div>
                 <div
@@ -100,14 +132,14 @@
               </form>
             </div>
           </div>
-          <!-- END CARD TEMPLATE -->
         </div>
+        <!-- END CARD TEMPLATE -->
       </div>
     </main>
     <footer class="container-fluid">
       <div class="row bg-secondary p-2">
         <div class="col-12">
-          <h6 class="text-center text-danger">
+          <h6 class="text-center" style="color: #800080;">
             Coded with <b><i class="fas fa-heart"></i></b> by Justin Mattson
           </h6>
         </div>
