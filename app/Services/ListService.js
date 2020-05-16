@@ -3,13 +3,6 @@ import _store from "../store.js";
 
 //Public
 class ListService {
-  addItemList(rawTaskList) {
-    let list = new _list(rawTaskList);
-    console.log(list + " from Service");
-
-    _store.State.lists.push(list);
-    //_store.saveState();
-  }
   //TODO  Here is where we handle all of our business logic,
   //given the information you need in the controller,
   //what methods will you need to do when this class is first 'constructed'?

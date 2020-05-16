@@ -3,6 +3,7 @@ import List from "./Models/List.js";
 let _state = {
   /** @type {List[]} */
   lists: [
+    /** @type {List[]} */
     new List({
       id: "ABC123",
       name: "Bathroom",
@@ -50,5 +51,5 @@ class Store {
   }
 }
 
-const store = new Store();
-export default store;
+const STORE = new Store();
+export default STORE;

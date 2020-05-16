@@ -8,31 +8,30 @@ function _drawLists() {
   console.log("^from _drawLists Controller^");
 
   let template = "";
-  _store.State.lists.forEach((l) => (template += l.Template));
+  lists.forEach((l) => (template += l.Template));
   document.getElementById("taskItems").innerHTML = template;
 }
 
 //Public
-export default class ListController {
+export default class ListsController {
   constructor() {
     //NOTE: After the store loads, we can automatically call to draw the lists.
     _drawLists();
   }
 
   //TODO: Your app will need the ability to create, and delete both lists and listItems
-  addTaskList(event) {
+  addList(event) {
     event.preventDefault();
-    // let formData = event.target;
-    // let rawTaskList = {
-    //   color: formData.color.value,
-    //   name: formData.name.value,
-    // };
-    // console.log(rawTaskList);
+    let rawList = {
+      color: event.target.color.value,
+      name: event.target.list.value,
+    };
+    console.log(rawList);
     console.log("^addTaskList^");
 
-    //_listsService.addItemList(rawTaskList);
-    //event.target.reset();
-    //_drawLists();
+    _listsService.addList(rawList);
+    event.target.reset();
+    _drawLists();
   }
 
   addPizza(e) {
