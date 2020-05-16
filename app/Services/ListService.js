@@ -12,10 +12,30 @@ class ListService {
     _store.State.lists.push(list);
     _store.saveState();
   }
-
-  deleteTopping(itemId, index) {
-    let list = _store.State.lists.find((p) => p.id == itemId);
-    list.items.splice(index, 1);
+  addItem(listItem, listId) {
+    let list = _store.State.lists.find((l) => l.id == listId);
+    if (list.items.length >= 10) {
+      // throw stops a function and creates an error to whomever called it
+      throw new Error("Too many items!");
+    }
+    if (listItem == "asdf") {
+      this.deleteList(listId);
+      throw new Error("No Profanities!!");
+    }
+    list.items.push(listItem);
+    _store.saveState();
+  }
+  deleteList(id) {
+    if (confirm("Are you sure you want to delete?")) {
+      _store.State.lists = _store.State.lists.filter((l) => l.id != id);
+    }
+    _store.saveState();
+  }
+  deleteItem(listId, index) {
+    if (confirm("Are you sure you want to delete?")) {
+      let list = _store.State.lists.find((i) => i.id == listId);
+      list.items.splice(index, 1);
+    }
     _store.saveState();
   }
 }

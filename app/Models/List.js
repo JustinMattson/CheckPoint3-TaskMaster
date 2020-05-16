@@ -14,7 +14,7 @@ export default class List {
 
   get Template() {
     return /*html*/ `
-      <div class="card shadow m-2">
+      <div class="card shadow m-2 border-secondary">
         <!-- Card Header -->
         <div
           class="d-flex justify-content-between p-2"
@@ -29,7 +29,7 @@ export default class List {
             <button
               type="submit"
               class="btn ml-1"
-              onclick="app.itemsController.deleteTask('${this.id}')"
+              onclick="app.listsController.deleteList('${this.id}')"
             >
               <i class="fas fa-times text-danger ts-dark"></i>
             </button>
@@ -42,16 +42,16 @@ export default class List {
           </ul>
           <form
             class="p-1"
-            onsubmit="app.listsController.addListItem(event, '${this.id}')"
+            onsubmit="app.listsController.addItem(event, '${this.id}')"
           >
             <div class="form-group d-flex mb-1">
               <input
                 type="text"
                 class="form-control border-0"
-                name="list-item"
-                id="list-item"
+                name="item"
+                id="item"
                 aria-describedby="helpId"
-                placeholder="List-item..."
+                placeholder="Add list item..."
                 required
               />
               <button type="submit" class="btn ml-1">
@@ -78,7 +78,7 @@ export default class List {
       template += /*html*/ `
         <li>${item}
             <i class="fas fa-times text-danger action"
-                onclick="app._listsController.deleteListItem('${this.id}', ${index})"></i>
+                onclick="app.listsController.deleteItem('${this.id}', ${index})"></i>
         </li>
         `;
     });

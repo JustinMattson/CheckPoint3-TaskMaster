@@ -33,14 +33,22 @@ export default class ListsController {
     event.target.reset();
     _drawLists();
   }
-
-  addPizza(e) {
-    e.preventDefault();
-    let rawList = {
-      list: e.target.list.value,
-    };
-    _listsService.addPizza(rawList);
-    // e.target.reset()
+  addItem(event, listId) {
+    event.preventDefault();
+    let item = event.target.item.value;
+    try {
+      _listsService.addItem(item, listId);
+    } catch (error) {
+      alert(error.message);
+    }
+    _drawLists();
+  }
+  deleteList(id) {
+    _listsService.deleteList(id);
+    _drawLists();
+  }
+  deleteItem(listId, index) {
+    _listsService.deleteItem(listId, index);
     _drawLists();
   }
 }
