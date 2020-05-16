@@ -5,4 +5,5 @@ class App {
   listController = new ListController();
 }
 
+console.log("main.js present");
 window["app"] = new App();

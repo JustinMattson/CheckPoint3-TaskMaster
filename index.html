@@ -29,6 +29,26 @@
         <!-- CREATE NEW TASK -->
         <div class="col mt-3 m-3 shadow p-3">
           <div class="d-flex justify-content-between">
+            <!-- <form
+              class="form-inline"
+              onsubmit="app.listsController.addList(event)"
+            >
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="list"
+                  id="ist"
+                  aria-describedby="helpId"
+                  placeholder="List..."
+                  required
+                />
+                <button type="submit" class="btn btn-outline-success ml-1">
+                  Create
+                </button>
+              </div>
+            </form> -->
+
             <form
               class="form-inline"
               onsubmit="app.listsController.addTaskList(event)"
@@ -39,12 +59,15 @@
                   <div>
                     <input
                       type="color"
-                      id="html5colorpicker"
-                      name="html5colorpicker"
+                      id="color"
+                      name="color"
                       class="action"
-                      onchange="clickColor(0, -1, -1, 5)"
                       value="#800080"
-                      style="width: 20px; border: none; background-color: #fff;"
+                      style="
+                        width: 20px;
+                        border: none;
+                        background-color: rgb(255, 255, 255);
+                      "
                     />
                   </div>
                   <div>
@@ -75,62 +98,61 @@
 
       <div class="row"></div>
       <div class="col-12 d-flex justify-content-center p-3">
+        <div id="taskItems" class="taskItems"></div>
         <!-- START CARD TEMPLATE -->
-        <div class="taskItems">
-          <div class="card shadow">
-            <!-- Card Header -->
-            <div
-              class="d-flex justify-content-between p-2"
-              style="background-color:${this.color};"
-            >
-              <span>
-                <h3 id="taskName" class="mt-2 text-light ts-dark">
-                  ${this.name}
-                </h3>
-              </span>
-              <span>
-                <button
-                  type="submit"
-                  class="btn ml-1"
-                  onclick="app.itemsController.deleteTask('${this.id}')"
-                >
-                  <i class="fas fa-times text-danger ts-dark"></i>
-                </button>
-              </span>
-            </div>
-            <!-- Card Body -->
-            <div class="card-body d-flex flex-column mt-3 p-1">
-              <ul class="pl-3">
-                ${this.ListsTemplate}
-              </ul>
-              <form
-                class="p-1"
-                onsubmit="app.listsController.addListItem(event, '${this.id}')"
+        <div class="card shadow m-2">
+          <!-- Card Header -->
+          <div
+            class="d-flex justify-content-between p-2"
+            style="background-color:${this.color};"
+          >
+            <span>
+              <h3 id="taskName" class="mt-2 text-light ts-dark">
+                ${this.name}
+              </h3>
+            </span>
+            <span>
+              <button
+                type="submit"
+                class="btn ml-1"
+                onclick="app.itemsController.deleteTask('${this.id}')"
               >
-                <div class="form-group d-flex mb-1">
-                  <input
-                    type="text"
-                    class="form-control border-0"
-                    name="list-item"
-                    id="list-item"
-                    aria-describedby="helpId"
-                    placeholder="List-item..."
-                    required
-                  />
-                  <button type="submit" class="btn ml-1">
-                    <i class="far fa-plus-square text-success action"></i>
-                  </button>
-                </div>
-                <div
-                  class=""
-                  style="
-                    height: 3px;
-                    width: 100%;
-                    background-color: ${this.color};
-                  "
-                ></div>
-              </form>
-            </div>
+                <i class="fas fa-times text-danger ts-dark"></i>
+              </button>
+            </span>
+          </div>
+          <!-- Card Body -->
+          <div class="card-body d-flex flex-column mt-3 p-1">
+            <ul class="pl-3">
+              ${this.ListsTemplate}
+            </ul>
+            <form
+              class="p-1"
+              onsubmit="app.listsController.addListItem(event, '${this.id}')"
+            >
+              <div class="form-group d-flex mb-1">
+                <input
+                  type="text"
+                  class="form-control border-0"
+                  name="list-item"
+                  id="list-item"
+                  aria-describedby="helpId"
+                  placeholder="List-item..."
+                  required
+                />
+                <button type="submit" class="btn ml-1">
+                  <i class="far fa-plus-square text-success action"></i>
+                </button>
+              </div>
+              <div
+                class=""
+                style="
+                  height: 3px;
+                  width: 100%;
+                  background-color: ${this.color};
+                "
+              ></div>
+            </form>
           </div>
         </div>
         <!-- END CARD TEMPLATE -->
