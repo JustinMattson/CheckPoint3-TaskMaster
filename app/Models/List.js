@@ -31,7 +31,7 @@ export default class List {
               class="btn ml-1"
               onclick="app.listsController.deleteList('${this.id}')"
             >
-              <i class="fas fa-times text-danger ts-dark"></i>
+              <i class="fa fa-times text-danger ts-dark"></i>
             </button>
           </span>
         </div>
@@ -55,7 +55,7 @@ export default class List {
                 required
               />
               <button type="submit" class="btn ml-1">
-                <i class="far fa-plus-square text-success action"></i>
+                <i class="fas fa-plus action ts-dark" style="color:${this.color}"></i>
               </button>
             </div>
             <div
