@@ -26,6 +26,12 @@ footer {
   text-shadow: 1px 1px 5px white;
 }
 
+.bs-none:focus {
+  outline: none;
+  box-shadow: none;
+  border: none;
+}
+
 /* .form-control {
   border: 0;
   box-shadow: none;

@@ -47,7 +47,7 @@ export default class List {
             <div class="form-group d-flex mb-1">
               <input
                 type="text"
-                class="form-control border-0"
+                class="form-control border-0 bs-none"
                 name="item"
                 id="item"
                 aria-describedby="helpId"
@@ -59,7 +59,7 @@ export default class List {
               </button>
             </div>
             <div
-              class=""
+              class="bs-none"
               style="
                 height: 3px;
                 width: 100%;
